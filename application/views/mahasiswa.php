@@ -1,30 +1,33 @@
-<p>Selamat datang di Admin Panel.</p>
-<div class="row" >
-    <div class="col-lg-10">
-    <table class="table table-secondary">
-        <thead>
+<p class="h3">Tabel Mahasiswa</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Tanggal Lahir</th>
+            <th>Alamat</th>
+            <th>ID User</th>
+            <th></th> <!-- Kolom untuk tombol edit -->
+            <th></th> <!-- Kolom untuk tombol delete -->
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($mahasiswa as $row): ?>
             <tr>
-                <th>Nama</th>
-                <th>Tanggal Lahir</th>
-                <th>Alamat</th>
-                <th>ID User</th>
-                <th></th>
+                <td><?= $row['nim'] ?></td>
+                <td><?= $row['nama'] ?></td>
+                <td><?= $row['tanggal_lahir'] ?></td>
+                <td><?= $row['alamat'] ?></td>
+                <td><?= $row['id_user'] ?></td>
+                <td>
+                    <a href="<?= base_url('mahasiswa/editMahasiswa/' . $row['nim']) ?>" class="btn btn-primary btn-sm">Edit</a>
+                </td>
+                <td>
+                    <form action="<?= base_url('mahasiswa/deleteMahasiswa/' . $row['nim']) ?>" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                    </form>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($mahasiswa as $mhs) : ?>
-                <tr>
-                    <td><?= $mhs['nama']; ?></td>
-                    <td><?= $mhs['tanggal_lahir']; ?></td>
-                    <td><?= $mhs['alamat']; ?></td>
-                    <td><?= $mhs['id_user']; ?></td>
-                    <td>
-    <a href="<?= base_url('mahasiswa/deleteMahasiswa/' . $mhs['id_user']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus Data</a>
-</td>
-
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    </div>
-</div>
+        <?php endforeach; ?>
+    </tbody>
+</table>

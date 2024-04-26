@@ -19,7 +19,7 @@ class Mahasiswa extends CI_Controller{
     }
     public function jadwal(){
         $this->load->model('Mahasiswa_model');
-        $data['mahasiswa'] = $this->Mahasiswa_model->getJadwal(); // Mengambil data dari model
+        $data['jadwal'] = $this->Mahasiswa_model->getJadwal(); // Mengambil data dari model
         
         $this->load->view('templates/header');
         $this->load->view('jadwal', $data); // Mengirim data ke view
@@ -27,7 +27,7 @@ class Mahasiswa extends CI_Controller{
     }
     public function jadwalMahasiswa(){
         $this->load->model('Mahasiswa_model');
-        $data['mahasiswa'] = $this->Mahasiswa_model->getJadwalMhs(); // Mengambil data dari model
+        $data['jadwal_mahasiswa'] = $this->Mahasiswa_model->getJadwalMhs(); // Mengambil data dari model
         
         $this->load->view('templates/header');
         $this->load->view('jadwalMahasiswa', $data); // Mengirim data ke view
@@ -35,7 +35,7 @@ class Mahasiswa extends CI_Controller{
     }
     public function mataKuliah(){
         $this->load->model('Mahasiswa_model');
-        $data['mahasiswa'] = $this->Mahasiswa_model->getMataKuliah(); // Mengambil data dari model
+        $data['matakuliah'] = $this->Mahasiswa_model->getMataKuliah(); // Mengambil data dari model
         
         $this->load->view('templates/header');
         $this->load->view('mataKuliah', $data); // Mengirim data ke view
